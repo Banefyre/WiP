@@ -17,13 +17,17 @@ echo "Nb commit : ".count($commits)."<br />";
 
 foreach ($commits as $commit)
 {
-    echo "auteur du commit : ".$commit['commit']['author']['name']."<br/>";
-    echo "date du commit : ".$commit['commit']['author']['date']."<br/>";
+    echo "auteur du commit : ".$commit['commit']['committer']['name']."<br/>";
+    echo "date du commit : ".$commit['commit']['committer']['date']."<br/>";
     echo "message : ".$commit['commit']['message']."<br/>";
+    echo "url du commit : ".$commit['html_url']."<br/>";
     echo "<br/>";
+
 }
 
-var_dump($commits);
+print_r($commits);
+
+
 
 ?>
 
