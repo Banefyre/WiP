@@ -6,7 +6,7 @@ $mysql = connect();
 $res = $mysql->query("SELECT author, name FROM timeline WHERE id = ".$_GET['id']);
 $res = $res->fetch_array();
 $collabo = $mysql->query("SELECT * FROM timeline_user WHERE id_timeline = ".$_GET['id']);
-$collabo = $collabo->fetch_assoc();
+$collabo = $collabo->fetch_all();
 
 $data = $_SESSION['data'];
 
