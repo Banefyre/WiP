@@ -98,7 +98,7 @@ margin-left: 15px;
 /**********************PROJECT INFO**********************/
 
 #project-info{
-	height:160px;
+	height:190px;
 	padding:20px;
 	background-color:#333333;
 
@@ -108,7 +108,7 @@ margin-left: 15px;
 
 #project-name{
 	float:left;
-	width:550px;
+	min-width:500px;
 	padding:35px 40px 35px 20px;
 	border-right: 1px solid #666;
 }
