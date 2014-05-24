@@ -1,7 +1,6 @@
 <?php
 include('php/header.php');
 include('php/menu.php');
-
 $mysqli = connect();
 
 $data = $_SESSION['data'];
@@ -13,7 +12,6 @@ if (isset($data[0]))
 {
     $repositories = $client->api('user')->repositories($data[0]);
     ?>
-    <div id="content">
     <h2>Ajouter votre timeline</h2>
     <input type="button" id="button_mine" value="..avec votre propre dépôt" />
     <input type="button" id="button_other" value="..avec un autre dépôt" /><br/>
@@ -35,7 +33,6 @@ if (isset($data[0]))
     </div>
     <input type="button" id="return" value="Retour" />
     <input type="submit" id="create" value="Créer" />
-    </div>
     <?php
 }
 include('php/footer.php');

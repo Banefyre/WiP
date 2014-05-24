@@ -4,11 +4,13 @@
         <a href="wip.php"><img src="img/wip-logo.png" alt="Logo WIP" /></a>
     </div>
 
+    <div id="logout">
+        <a href="logout.php"><img width="30px" src="img/logout.png" alt="Log out" /></a>
+    </div>
+
     <div id="menu">
         <ul>
-            <li><a href="add_timeline.php">Add project</a></li>
             <li class="categ-project">My projects</li>
-
             <?php
             $mysql = connect();
             $data = $_SESSION['data'];
@@ -21,6 +23,11 @@
             }
             ?>
         </ul>
+    </div>
+    <div class="content"></div>
+
+    <div id="addproject">
+        <a class="btn" href="add_timeline.php">Add a project</a>
     </div>
 
 </section>

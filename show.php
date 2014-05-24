@@ -17,6 +17,8 @@ function getFirst($commits)
 $mysql = connect();
 $res = $mysql->query("SELECT author, name FROM timeline WHERE id = ".$_GET['id']);
 $res = $res->fetch_array();
+$collabo = $mysql->query("SELECT * FROM timeline_user WHERE id_timeline = ".$_GET['id']);
+$collabo = $collabo->fetch_all();
 
 $data = $_SESSION['data'];
 
@@ -25,18 +27,22 @@ $client->authenticate($data[0], $data[1], Github\Client::AUTH_HTTP_PASSWORD);
 
 $commits = $client->api('repo')->commits()->all($res['author'], $res['name'], array('sha' => 'master'));
 $repo = $client->api('repo')->show($res['author'], $res['name']);
+
 $firstcommit = getFirst($commits);
 $scale = 150;
 $pos = -1;
 $size = 1;
+
 ?>
 
 	<section id="project-info">
 
 		<div id="project-name">
-			<img src="img/project-img.png" alt="projectimg" />
-			<h2><?php echo $res['name']; ?></h2>
-			<p><?php echo $repo['description'];?></p>
+			<img src="<?php echo $repo['owner']['avatar_url']; ?>" width="80px" alt="projectimg" />
+			<h2 id="name"><?php echo $res['name']; ?></h2>
+			<input type="hidden" id="oldname" value='<?php echo $res['name']; ?>' />
+			<input type="hidden" id="author" value='<?php echo $repo['owner']['login']; ?>' />
+			<p id="description"><?php echo $repo['description'];?></p>
 		</div>
 
 		<div id="project-numbers">
@@ -47,7 +53,7 @@ $size = 1;
 			</div>
 
 			<div class="p-number">
-				<span>5</span>
+				<span><?php echo(count($collabo)); ?></span>
 				<p>Collaborateurs</p>
 			</div>
 
@@ -57,10 +63,12 @@ $size = 1;
 			</div>
 
 		</div>
-
+		<?php if ($res['author'] == $data[0])
+		{?>
 		<div id="project-edit">
-			<a href="#edit">Edit this project</a>
+			<a href="#">Edit this project</a>
 		</div>
+		<?php } ?>
 
 
 	</section>
@@ -109,9 +117,9 @@ $size = 1;
 
 }*/
 
+
 //print_r($commits);
 ?>
-
 	</section>
 
 

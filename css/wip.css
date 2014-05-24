@@ -1,4 +1,4 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
+/* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -12,8 +12,8 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
@@ -24,7 +24,7 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
@@ -48,7 +48,10 @@ table {
 	border-spacing: 0;
 }
 
-
+*
+{
+    outline: none;
+}
 
 
 
@@ -83,6 +86,17 @@ section{
 	padding:0 20px;
 }
 
+#addproject{
+  margin-top:28px;
+  float:right;
+  margin-right:15px;
+}
+
+#logout {
+float: right;
+margin-top: 17px;
+margin-left: 15px;
+}
 
 /**********************PROJECT INFO**********************/
 
@@ -145,9 +159,10 @@ section{
 
 #project-numbers p{
 	color:#ddd;
-	font-size:12px;	
+	font-size:12px;
 	margin-top:15px;
 }
+
 
 /*PROJECT EDIT*/
 
@@ -166,6 +181,15 @@ section{
 	border-radius:3px;
 }
 
+.btn{
+  color:#fff;
+  border:2px solid #fff;
+  padding: 10px 15px;
+  font-weight:700;
+  text-decoration:none;
+  border-radius:3px;
+
+}
 
 
 /**********************TIMELINE**********************/
@@ -175,6 +199,9 @@ section{
 	position:relative;
 	background:#ccc;
 	height:190px;
+  background-image:url('../img/arrow-timeline.png');
+  background-position:center bottom;
+  background-repeat:no-repeat;
 }
 
 #timeline{
@@ -190,6 +217,10 @@ box-shadow:inset 0 0 5px 1px rgba(0,0,0,0.4);
 #infos{
 	border-top:10px solid #333;
 }
+
+
+
+
 
 
 .timeline-cp{
@@ -257,3 +288,8 @@ focus-cp{
 
 /**********************INFOS**********************/
 
+
+#mine_fields, #other_fields, #create, #return, #ok, #login_repo, #select_mine, #select_other
+{
+    display: none;
+}
