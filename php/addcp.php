@@ -1,5 +1,5 @@
 <?php
-include('connect.php');
+require_once('connect.php');
 $mysqli = connect();
 
 if (isset($_POST['submit']))

@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<html>
-    <head>
-    <title>WiP - Work in Progress</title>
-    </head>
-    <body>
+<?php include('php/header.php'); ?>
         <h3>
             Login with your GitHub credentials
         </h3>
@@ -16,5 +11,4 @@
             <input type="password" name="password" />
             <input type="submit" />
         </form>
-    </body>
-</html>
+<?php include('php/footer.php'); ?>
