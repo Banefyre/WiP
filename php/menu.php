@@ -4,7 +4,9 @@
         <a href="wip.php"><img src="img/wip-logo.png" alt="Logo WIP" /></a>
     </div>
 
-
+    <div id="logout">
+        <a href="#"><img width="30px" src="img/logout.png" alt="Log out" /></a>
+    </div>
 
     <div id="menu">
         <ul>

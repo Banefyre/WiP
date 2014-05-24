@@ -89,6 +89,11 @@ section{
   margin-right:15px;
 }
 
+#logout {
+float: right;
+margin-top: 17px;
+margin-left: 15px;
+}
 
 /**********************PROJECT INFO**********************/
 
@@ -154,6 +159,7 @@ section{
 	font-size:12px;
 	margin-top:15px;
 }
+
 
 /*PROJECT EDIT*/
 
