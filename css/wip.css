@@ -48,7 +48,10 @@ table {
 	border-spacing: 0;
 }
 
-
+*
+{
+    outline: none;
+}
 
 
 

@@ -1,7 +1,7 @@
 <?php
 function connect()
 {
-	$mysqli = new mysqli('localhost', 'root', 'password', 'wip');
+	$mysqli = new mysqli('localhost', 'root', 'filou1995', 'wip');
 
 	if ($mysqli->connect_error) {
 		die('Connect Error (' . $mysqli->connect_errno . ') '

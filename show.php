@@ -16,14 +16,15 @@ $client->authenticate($data[0], $data[1], Github\Client::AUTH_HTTP_PASSWORD);
 $commits = $client->api('repo')->commits()->all($res['author'], $res['name'], array('sha' => 'master'));
 $repo = $client->api('repo')->show($res['author'], $res['name']);
 
+//print_r($repo);
 ?>
 
 	<section id="project-info">
 
 		<div id="project-name">
-			<img src="img/project-img.png" alt="projectimg" />
-			<h2><?php echo $res['name']; ?></h2>
-			<p><?php echo $repo['description'];?></p>
+			<img src="<?php echo $repo['owner']['avatar_url']; ?>" width="80px" alt="projectimg" />
+			<h2 id="name"><?php echo $res['name']; ?></h2>
+			<p id="description"><?php echo $repo['description'];?></p>
 		</div>
 
 		<div id="project-numbers">
@@ -47,7 +48,7 @@ $repo = $client->api('repo')->show($res['author'], $res['name']);
 		<?php if ($res['author'] == $data[0])
 		{?>
 		<div id="project-edit">
-			<a href="#edit">Edit this project</a>
+			<a href="#">Edit this project</a>
 		</div>
 		<?php } ?>
 
@@ -86,7 +87,7 @@ $repo = $client->api('repo')->show($res['author'], $res['name']);
 
         }
 
-        print_r($commits);
+        //print_r($commits);
         ?>
 
 	</section>
