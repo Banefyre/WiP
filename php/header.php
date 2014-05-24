@@ -6,11 +6,13 @@ require_once('connect.php');
 
 <!DOCTYPE html>
 <html>
-    <head>
-    <title>WiP - Work in Progress</title>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="js/script.js"></script>
-    </head>
-    <link rel="stylesheet" type="text/css" href="css/wip.css"></link>
-    <body>
+	<head>
+	<title>WiP - Work in Progress</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="http://brandonaaron.github.io/jquery-mousewheel/jquery.mousewheel.js"></script>
+	<script src="../js/timeline.js"></script>
+	<script src="js/script.js"></script>
+	</head>
+	<link rel="stylesheet" type="text/css" href="css/wip.css"></link>
+	<body>
