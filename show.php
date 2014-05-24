@@ -5,6 +5,8 @@ include('php/menu.php');
 $mysql = connect();
 $res = $mysql->query("SELECT author, name FROM timeline WHERE id = ".$_GET['id']);
 $res = $res->fetch_array();
+$collabo = $mysql->query("SELECT * FROM timeline_user WHERE id_timeline = ".$_GET['id']);
+$collabo = $collabo->fetch_assoc();
 
 $data = $_SESSION['data'];
 
@@ -32,7 +34,7 @@ $repo = $client->api('repo')->show($res['author'], $res['name']);
 			</div>
 
 			<div class="p-number">
-				<span>5</span>
+				<span><?php echo(count($collabo)); ?></span>
 				<p>Collaborateurs</p>
 			</div>
 
@@ -42,10 +44,12 @@ $repo = $client->api('repo')->show($res['author'], $res['name']);
 			</div>
 
 		</div>
-
+		<?php if ($res['author'] == $data[0])
+		{?>
 		<div id="project-edit">
 			<a href="#edit">Edit this project</a>
 		</div>
+		<?php } ?>
 
 
 	</section>

@@ -6,7 +6,7 @@
 
     <div id="menu">
         <ul>
-            <li><a href="add_timeline.php">Add project</a></li>
+            <li><a id="new_project" href="add_timeline.php">Add project</a></li>
             <li class="categ-project">My projects</li>
 
             <?php
@@ -22,5 +22,6 @@
             ?>
         </ul>
     </div>
+    <div class="content"></div>
 
 </section>
