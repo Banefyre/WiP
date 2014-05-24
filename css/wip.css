@@ -257,7 +257,7 @@ box-shadow: 0 0 5px 1px rgba(0,0,0,0.2);
 
 
 /***************PAGE ADD TIMELINE*****************/
-#addtimeline{
+.mini-form{
   margin:0 auto;
   text-align:center;
   width:500px;
@@ -267,14 +267,14 @@ box-shadow: 0 0 5px 1px rgba(0,0,0,0.2);
   padding:30px 0px;
 }
 
-#addtimeline h2{
+.mini-form h2{
   font-size:32px;
   color:#fff;
   text-transform:uppercase;
   margin-bottom:20px;
 }
 
-#addtimeline input[type="button"]{
+.mini-form input[type="button"]{
   color:#fff;
   border:2px solid #fff;
   padding: 10px 15px;
@@ -286,7 +286,7 @@ box-shadow: 0 0 5px 1px rgba(0,0,0,0.2);
   cursor:pointer;
 }
 
-#addtimeline input[type="button"]:hover{
+.mini-form input[type="button"]:hover{
   background:#fff;
   color:#333;
 }
@@ -294,6 +294,50 @@ box-shadow: 0 0 5px 1px rgba(0,0,0,0.2);
 
 
 
+/*****************LOGIN FORM**********************/
+
+#login-form{
+  padding:30px;
+  width:450px;
+}
+
+#login-form h2{
+  text-transform:none;
+}
+
+#login-form input[type="text"], #login-form input[type="password"] {
+  width: 100%;
+  border-radius:3px;
+  line-height:32px;
+  font-size:24px;
+  color:#333;
+  margin:15px 0;
+}
+
+#login-form input[type="submit"] {
+  float: left;
+  margin-top:15px;
+  background:#333;
+  border:2px solid #fff;
+  padding:10px 20px;
+  border-radius:3px;
+  width:48%;
+  color:#fff;
+  font-size:14px;
+  cursor:pointer;
+}
+
+#login-form h3{
+  color:#fff;
+  font-size:12px;
+  margin-top:50px;
+}
+
+
+#login-form input[type="submit"]:hover{
+  background:#fff;
+  color:#333;
+}
 /**********************INFOS**********************/
 
 

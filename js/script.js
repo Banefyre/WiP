@@ -79,7 +79,12 @@ $( document ).ready(function() {
             repo = $('#select_other').val();
         }
         else
-            repo = $('#select_mine').val();
+        {
+            if ($('#private_repo').val() != null)
+                repo = $('#private_repo').val();
+            else
+                repo = $('#select_mine').val();
+        }
         $.ajax({
           url: "php/parse_repo.php",
           method: "post",
@@ -100,9 +105,19 @@ $( document ).ready(function() {
         }
         else
         {
+            var oldname = $('#oldname').val();
+            var author = $('#author').val();
             $('#name').attr("contenteditable","false");
             $('#description').attr("contenteditable","false");
             $('#project-edit').children().text("Edit this project");
+            $.ajax({
+              url: "php/edit_repo.php",
+              method: "post",
+              data: { author: author, oldname: oldname, name: $('#name').val(), description: $('#description').text() },
+              success: function(res){
+                  console.log(res);
+            }
+            });
         }
     });
 });
