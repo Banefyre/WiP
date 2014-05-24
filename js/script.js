@@ -90,5 +90,19 @@ $( document ).ready(function() {
         });
     });
 
-
+    $('#project-edit').click(function()
+    {
+        if ($('#project-edit').children().text() != "Save")
+        {
+            $('#name').attr("contenteditable","true");
+            $('#description').attr("contenteditable","true");
+            $('#project-edit').children().text("Save");
+        }
+        else
+        {
+            $('#name').attr("contenteditable","false");
+            $('#description').attr("contenteditable","false");
+            $('#project-edit').children().text("Edit this project");
+        }
+    });
 });
