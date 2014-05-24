@@ -5,7 +5,7 @@
     </div>
 
     <div id="logout">
-        <a href="#"><img width="30px" src="img/logout.png" alt="Log out" /></a>
+        <a href="logout.php"><img width="30px" src="img/logout.png" alt="Log out" /></a>
     </div>
 
     <div id="menu">

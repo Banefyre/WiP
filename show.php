@@ -24,6 +24,8 @@ $repo = $client->api('repo')->show($res['author'], $res['name']);
 		<div id="project-name">
 			<img src="<?php echo $repo['owner']['avatar_url']; ?>" width="80px" alt="projectimg" />
 			<h2 id="name"><?php echo $res['name']; ?></h2>
+			<input type="hidden" id="oldname" value='<?php echo $res['name']; ?>' />
+			<input type="hidden" id="author" value='<?php echo $repo['owner']['login']; ?>' />
 			<p id="description"><?php echo $repo['description'];?></p>
 		</div>
 
