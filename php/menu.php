@@ -4,6 +4,8 @@
         <a href="wip.php"><img src="img/wip-logo.png" alt="Logo WIP" /></a>
     </div>
 
+
+
     <div id="menu">
         <ul>
             <li class="categ-project">My projects</li>
