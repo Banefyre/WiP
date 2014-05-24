@@ -2,11 +2,23 @@
 include('php/header.php');
 include('php/menu.php');
 
+function init($date, $begin){
+	$date = date_create_from_format("Y-m-d\TH:i:sO", $date);
+	$begin = date_create_from_format("Y-m-d\TH:i:sO", $begin);
+	$interval = date_diff($date,$begin)->format('%d');
+	return ($interval);
+}
+
+function getFirst($commits)
+{
+	return ($commits[count($commits) - 1]['commit']['committer']['date']);
+}
+
 $mysql = connect();
 $res = $mysql->query("SELECT author, name FROM timeline WHERE id = ".$_GET['id']);
 $res = $res->fetch_array();
 $collabo = $mysql->query("SELECT * FROM timeline_user WHERE id_timeline = ".$_GET['id']);
-$collabo = $collabo->fetch_assoc();
+$collabo = $collabo->fetch_all();
 
 $data = $_SESSION['data'];
 
@@ -16,7 +28,11 @@ $client->authenticate($data[0], $data[1], Github\Client::AUTH_HTTP_PASSWORD);
 $commits = $client->api('repo')->commits()->all($res['author'], $res['name'], array('sha' => 'master'));
 $repo = $client->api('repo')->show($res['author'], $res['name']);
 
-//print_r($repo);
+$firstcommit = getFirst($commits);
+$scale = 150;
+$pos = -1;
+$size = 1;
+
 ?>
 
 	<section id="project-info">
@@ -60,13 +76,23 @@ $repo = $client->api('repo')->show($res['author'], $res['name']);
 
 	<section id="timeline-container">
 		<div id="timeline">
-			<div class="timeline-cp" id="cp1"></div>
-			<div class="timeline-cp" id="cp2"></div>
-			<div class="timeline-cp focus-cp" id="cp3"></div>
-			<div class="timeline-cp" id="cp4"></div>
+<?php
+//echo $firstcommit;
 
-		</div>
-
+		foreach ($commits as $commit)
+		{
+			//echo $commit['commit']['committer']['date'];
+			//echo "<br><br>";
+			if ($pos === ($scale* init($commit['commit']['committer']['date'], $firstcommit)) && $size <= 4)
+				$size++;
+			else
+				$size = 1;
+			$pos = $scale * init($commit['commit']['committer']['date'], $firstcommit);
+			echo '<div class="timeline-cp scale'. $size . '" id="cp' . $commit['sha'] . '" style="left : ' . $pos .'px"></div>';
+			/*echo '<div class="timeline-cp focus-cp" id="cp3"></div>'*/
+		}
+?>
+			</div>
 	</section>
 
 
@@ -74,24 +100,26 @@ $repo = $client->api('repo')->show($res['author'], $res['name']);
 
 		<div id="info-cp">
 
+		<button id="left">l</button>
+		<button id="right">r</button>
 		</div>
 
-        <?php
-        echo "Nb commit : ".count($commits)."<br />";
+<?php
+//echo "Nb commit : ".count($commits)."<br />";
 
-        foreach ($commits as $commit)
-        {
-            echo "auteur du commit : ".$commit['commit']['committer']['name']."<br/>";
-            echo "date du commit : ".$commit['commit']['committer']['date']."<br/>";
-            echo "message : ".$commit['commit']['message']."<br/>";
-            echo "url du commit : ".$commit['html_url']."<br/>";
-            echo "<br/>";
+/*foreach ($commits as $commit)
+{
+	echo "auteur du commit : ".$commit['commit']['committer']['name']."<br/>";
+	echo "date du commit : ".$commit['commit']['committer']['date']."<br/>";
+	echo "message : ".$commit['commit']['message']."<br/>";
+	echo "url du commit : ".$commit['html_url']."<br/>";
+	echo "<br/>";
 
-        }
+}*/
 
-        //print_r($commits);
-        ?>
 
+//print_r($commits);
+?>
 	</section>
 
 
