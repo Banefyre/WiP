@@ -12,5 +12,5 @@ require_once('connect.php');
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="js/script.js"></script>
     </head>
-    <link rel="stylesheet" type="text/css" href="css/style.css"></link>
+    <link rel="stylesheet" type="text/css" href="css/wip.css"></link>
     <body>
