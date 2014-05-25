@@ -13,10 +13,10 @@ if (isset($data[0]))
 {
     $repositories = $client->api('user')->repositories($data[0]);
     ?>
-    <div id="addtimeline">
-      <h2>Ajouter votre timeline</h2>
-      <input type="button" id="button_mine" value="..avec votre propre dépôt" />
-      <input type="button" id="button_other" value="..avec un autre dépôt" /><br/>
+    <div class="mini-form" id="addtimeline">
+      <h2>Add your timeline</h2>
+      <input type="button" id="button_mine" value="Use your own repositery" />
+      <input type="button" id="button_other" value="Use someone's else" /><br/>
       <div id="mine_fields">
       <select id="select_mine">
       <?php
@@ -33,8 +33,8 @@ if (isset($data[0]))
       <select id="select_other">
       </select>
       </div>
-      <input type="button" id="return" value="Retour" />
-      <input type="submit" id="create" value="Créer" />
+      <input type="button" id="return" value="Cancel" />
+      <input type="submit" id="create" value="Create" />
     </div>
     <?php
 }

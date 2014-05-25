@@ -3,11 +3,11 @@ session_start();
 include('connect.php');
 require_once ('../vendor/autoload.php');
 
-$mysql = connect();
+$mysqli = connect();
 
 if (isset($_POST['login'], $_POST['password']))
 {
-    $query = $mysql->query("SELECT login, password FROM users WHERE login='".$_POST['login']."'");
+    $query = $mysqli->query("SELECT login, password FROM users WHERE login='".$_POST['login']."'");
     $query = $query->fetch_all();
 
     if (empty($query))

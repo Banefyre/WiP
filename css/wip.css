@@ -299,7 +299,7 @@ focus-cp{
   margin-bottom:20px;
 }
 
-.mini-form input[type="button"]{
+.mini-form input[type="button"], .mini-form input[type="submit"]{
   color:#fff;
   border:2px solid #fff;
   padding: 10px 15px;
@@ -309,9 +309,10 @@ focus-cp{
   background:transparent;
   font-size:14px;
   cursor:pointer;
+  margin:20px;
 }
 
-.mini-form input[type="button"]:hover{
+.mini-form input:hover{
   background:#fff;
   color:#333;
 }
@@ -325,6 +326,29 @@ focus-cp{
 
 }
 
+
+#mine_fields input[type="text"] {
+  width: 33%;
+  border-radius:3px;
+  line-height:28px;
+  font-size:14px;
+  color:#333;
+  margin:15px 15px;
+  padding:2px;
+}
+
+select#select_mine{
+   width: 33%;
+   border-radius:3px;
+   padding: 5px;
+   font-size: 16px;
+   line-height: 1;
+   border: 0;
+   border-radius: 0;
+   height: 34px;
+   margin:15px 15px;
+   }
+}
 
 /*****************LOGIN FORM**********************/
 
