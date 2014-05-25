@@ -22,7 +22,7 @@ $( document ).ready(function() {
 		$('#number_fixed').remove();
 		$('#infos-content').fadeOut(250);
 		$('#list-cp').fadeOut(250);
-		$(".timeline-group").animate({left: "+=" + (event.deltaY * event.deltaFactor) }, 10);
+		$('div[scrollable="true"]').animate({left: "+=" + (event.deltaY * event.deltaFactor) }, 10);
 	});
 
 	$("#left").click(function() {
@@ -48,6 +48,17 @@ $( document ).ready(function() {
 			len = 5;
 		$(this).attr("class", "timeline-group scale" + len);
 	});
+
+
+	var html = [];
+	var left = $("#timeline div").last().parent().width() / 2;
+	var allRange = (parseInt($("#group_0").css("left")) - parseInt($("#timeline div").last().parent().css("left")));
+	for (i = 0; i < (allRange / 100) + 1; i++) {
+		html.push('<div class="marker" style="left:' + left + 'px"></div>');
+		left += 100;
+	}
+	$("#markers").append( html.join('') );
+
 
 	var width;
 
@@ -82,7 +93,7 @@ $( document ).ready(function() {
 		var start = $("#timeline div").last().parent().css("left").replace(/[^-\d\.]/g, '');
 		var offset = +start + +(100 * diff) - +($('#timeline-container').width() / 2) + +width / 2;
 		//console.log(start, offset);
-		$('.timeline-group').animate({left: "-=" + offset }, 500);
+		$('div[scrollable="true"]').animate({left: "-=" + offset }, 500);
 
 
 		var author;
@@ -115,7 +126,7 @@ $( document ).ready(function() {
 		diff = focus($("#date").val());
 		var start = $("#timeline div").last().parent().css("left").replace(/[^-\d\.]/g, '');
 		var offset = +start + +(100 * diff) - +($('#timeline-container').width() / 2);
-		$('.timeline-group').animate({left: "-=" + offset }, 500);
+		$('div[scrollable="true"]').animate({left: "-=" + offset }, 500);
 	});
 
 	$('#timeline').click(function(){
@@ -132,6 +143,10 @@ $( document ).ready(function() {
 			$('#fake-form').show();
 			$('#timeline').append("<div scrollable='true' class='timeline-group blue scale4' id='group_99' style='left: " + css + "px; display: block;'></div>");
 		}
+	});
+
+	$('#save_cp').click(function(){
+		$('#infos-content').hide();
 	});
 
 });

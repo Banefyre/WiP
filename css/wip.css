@@ -275,7 +275,7 @@ background-position:center bottom;
 	margin: 0 auto;
 	width: 100%;
 	text-align: center;
-	margin-top: 150px;
+	margin-top: 132px;
 	}
 
 
@@ -708,7 +708,20 @@ select#select_mine{
 }
 /**********************INFOS**********************/
 
+#markers {
+    padding:0px;
+    position:relative;
 
+}
+
+.marker{
+    border-left:1px solid #333;
+    height: 20px;
+    width: 1px;
+    position: relative;
+    display:inline-block;
+    bottom :-150px;
+}
 #mine_fields, #other_fields, #create, #return, #ok, #login_repo, #select_mine, #select_other
 {
     display: none;

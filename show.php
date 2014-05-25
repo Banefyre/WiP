@@ -76,6 +76,7 @@ $scale = 100;
 
 
 	<section id="timeline-container">
+
 		<div id="date_chooser"><input id="date" type="date" /><input id ="go_date" type="button" value="Go !" /></div>
 		<div id="timeline">
 <?php
@@ -102,6 +103,9 @@ $scale = 100;
 		}
 ?>
 			</div>
+			<div scrollable="true" id="markers">
+
+        	</div>
 			<div id="arrow-timeline"><img src="img/arrow-timeline.png" alt="bla"></div>
 	</section>
 
