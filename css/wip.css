@@ -66,6 +66,7 @@ section{
 	background:#e20030;
 	color:#fff;
 	height:70px;
+  overflow:hidden;
 }
 
 .logo{
@@ -75,6 +76,7 @@ section{
 
 #menu{
 	float:right;
+  overflow:hidden;
 }
 
 #menu .categ-project{
@@ -84,7 +86,8 @@ section{
 }
 
 #menu ul li{
-	padding:0 20px;
+	padding:15px 40px 15px 30px;
+  background:#e20030;
 }
 
 #addproject{
@@ -94,10 +97,22 @@ section{
 }
 
 #logout {
-float: right;
-margin-top: 17px;
-margin-left: 15px;
+  float: right;
+  margin-top: 17px;
+  margin-left: 15px;
 }
+
+
+.categ-project{
+  padding:0px 40px 0px 30px !important;
+  padding-right:60px !important;
+  background-image: url('../img/arrow-down.png') !important;
+  background-repeat: no-repeat !important;
+  background-position: 85% center !important;
+}
+
+
+
 
 /**********************PROJECT INFO**********************/
 
@@ -121,6 +136,7 @@ margin-left: 15px;
 #project-name img{
 	float:left;
 	margin-right:40px;
+  border-radius:50%;
 }
 
 #project-name h2{
@@ -195,9 +211,12 @@ margin-left: 15px;
   font-weight:700;
   text-decoration:none;
   border-radius:3px;
-
 }
 
+.btn:hover{
+  background:#fff;
+  color:#e20030;
+}
 
 /**********************TIMELINE**********************/
 
@@ -285,6 +304,43 @@ focus-cp{
 #cp4{
 	left:90%;
 }
+
+
+#infos{
+  background:#ccc;
+}
+
+#info-cp{
+  margin:0 auto;
+  margin-top:-5px;
+  width:750px;
+  background:#333;
+  border-radius:3px;
+}
+
+#info-cp h4{
+  width:100%;
+  margin:0 auto;
+  padding:20px 0;
+  text-align:center;
+  color:#fff;
+  text-transform:uppercase;
+  font-size:24px;
+  border-bottom:1px solid #666;
+}
+
+
+#info-cp p{
+  color:#ddd;
+  padding:30px;
+  font-weight:400;
+}
+
+#info-cp span{
+  font-weight:bold;
+  line-height:32px;
+}
+
 
 
 /***************PAGE ADD TIMELINE*****************/
