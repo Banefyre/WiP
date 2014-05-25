@@ -1,6 +1,6 @@
 <?php
   include('php/header.php');
-
+echo '<body id="login-body">';
 
  if (isset($_SESSION['data']))
         header('Location: wip.php'); ?>

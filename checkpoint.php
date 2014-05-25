@@ -1,6 +1,7 @@
 <?php
 
 include('php/header.php');
+echo "<body>";
 include('php/menu.php');
 
 $id_timeline = 1;
