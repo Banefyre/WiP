@@ -14,4 +14,5 @@ require_once('connect.php');
 	<script src="../js/timeline.js"></script>
 	<script src="js/script.js"></script>
 	</head>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,800,600,700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="css/wip.css"></link>

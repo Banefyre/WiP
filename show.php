@@ -6,7 +6,7 @@ include('php/menu.php');
 function init($date, $begin){
 	$date = date_create_from_format("Y-m-d\TH:i:sO", $date);
 	$begin = date_create_from_format("Y-m-d\TH:i:sO", $begin);
-	$interval = date_diff($date,$begin)->format('%d');
+	$interval = date_diff($date,$begin)->format('%a');
 	return ($interval);
 }
 
@@ -79,18 +79,20 @@ $size = 1;
 		<div id="timeline">
 <?php
 //echo $firstcommit;
-
+		$i = 0;
 		foreach ($commits as $commit)
 		{
+			$i++;
 			//echo $commit['commit']['committer']['date'];
-			//echo "<br><br>";
-			if ($pos === ($scale* init($commit['commit']['committer']['date'], $firstcommit)) && $size <= 4)
-				$size++;
+			if ($pos === ($scale * init($commit['commit']['committer']['date'], $firstcommit)))
+			{
+				if ($size <= 4)
+					$size++;
+			}
 			else
 				$size = 1;
 			$pos = $scale * init($commit['commit']['committer']['date'], $firstcommit);
-			echo '<div class="timeline-cp scale'. $size . '" id="cp' . $commit['sha'] . '" style="left : ' . $pos .'px"></div>';
-			/*echo '<div class="timeline-cp focus-cp" id="cp3"></div>'*/
+			echo '<div class="timeline-cp scale'. $size .'" id="'.$i.'" style="left : ' . $pos .'px"></div>';
 		}
 ?>
 			</div>
@@ -110,13 +112,35 @@ $size = 1;
 
 /*foreach ($commits as $commit)
 {
-	echo "auteur du commit : ".$commit['commit']['committer']['name']."<br/>";
-	echo "date du commit : ".$commit['commit']['committer']['date']."<br/>";
-	echo "message : ".$commit['commit']['message']."<br/>";
-	echo "url du commit : ".$commit['html_url']."<br/>";
+	//echo init($commit['commit']['committer']['date'], $firstcommit);
+	//echo "auteur du commit : ".$commit['commit']['committer']['name']."<br/>";
+	//echo "date du commit : ".$commit['commit']['committer']['date']."<br/>";
+	//echo "message : ".$commit['commit']['message']."<br/>";
+	//echo "url du commit : ".$commit['html_url']."<br/>";
 	echo "<br/>";
 
 }*/
+
+$scale * init($commit['commit']['committer']['date'], $firstcommit);
+
+$i = 0;
+while ($i < (count($commits) - 1))
+{
+	echo '<div id="group_'.$i.'">';
+	if (init($commits[$i]['commit']['committer']['date'], $firstcommit) == init($commits[$i + 1]['commit']['committer']['date'], $firstcommit))
+	{
+	while (init($commits[$i]['commit']['committer']['date'], $firstcommit) == init($commits[$i + 1]['commit']['committer']['date'], $firstcommit))
+	{
+		echo "salut";
+		$i++;
+	}
+	}
+	else
+		$i++;
+	echo "</div>";
+	//echo '<div class="timeline-cp scale'. $size .'" id="'.$i.'" style="left : ' . $pos .'px"></div>';
+}
+
 
 
 //print_r($commits);
