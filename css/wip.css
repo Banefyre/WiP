@@ -238,8 +238,6 @@ section{
 	background: -ms-linear-gradient(top,  #a5a5a5 0%,#e2e2e2 50%,#a5a5a5 100%); /* IE10+ */
 	background: linear-gradient(to bottom,  #a5a5a5 0%,#e2e2e2 50%,#a5a5a5 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a5a5a5', endColorstr='#a5a5a5',GradientType=0 ); /* IE6-9 */
-
-
 }
 
 #timeline{
@@ -503,7 +501,12 @@ section{
 
 }
 
-
+#checkpoint
+{
+    width:50px;
+    height:50px;
+    background-color: blue:
+}
 
 /***************PAGE ADD TIMELINE*****************/
 .mini-form{
