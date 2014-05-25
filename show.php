@@ -43,7 +43,7 @@ $scale = 100;
 			<h2 id="name"><?php echo $res['name']; ?></h2>
 			<input type="hidden" id="oldname" value='<?php echo $res['name']; ?>' />
 			<input type="hidden" id="author" value='<?php echo $repo['owner']['login']; ?>' />
-			<p id="description"><?php echo $repo['description'];?></p>
+			<p id="description">Created by : <?php echo $repo['description'];?></p>
 		</div>
 
 		<div id="project-numbers">
@@ -107,9 +107,13 @@ $scale = 100;
 	<section id="infos">
 
 		<div id="info-cp">
-
-		<button id="left">l</button>
-		<button id="right">r</button>
+				<h4>Checkpoint name</h4>
+				<p>
+					<span>Date of creation :</span> 13/37/2014<br />
+					<span>Type of Checkpoint :</span> GitHub Commit<br />
+					<span>Description :</span><br />
+					Lorem ipsum cacawete toussa toussa maggle.
+				</p>
 		</div>
 
 <?php

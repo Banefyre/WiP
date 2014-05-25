@@ -66,6 +66,7 @@ section{
 	background:#e20030;
 	color:#fff;
 	height:70px;
+  overflow:hidden;
 }
 
 .logo{
@@ -75,6 +76,7 @@ section{
 
 #menu{
 	float:right;
+  overflow:hidden;
 }
 
 #menu .categ-project{
@@ -84,7 +86,8 @@ section{
 }
 
 #menu ul li{
-	padding:0 20px;
+	padding:15px 40px 15px 30px;
+  background:#e20030;
 }
 
 #addproject{
@@ -94,10 +97,22 @@ section{
 }
 
 #logout {
-float: right;
-margin-top: 17px;
-margin-left: 15px;
+  float: right;
+  margin-top: 17px;
+  margin-left: 15px;
 }
+
+
+.categ-project{
+  padding:0px 40px 0px 30px !important;
+  padding-right:60px !important;
+  background-image: url('../img/arrow-down.png') !important;
+  background-repeat: no-repeat !important;
+  background-position: 85% center !important;
+}
+
+
+
 
 /**********************PROJECT INFO**********************/
 
@@ -112,14 +127,16 @@ margin-left: 15px;
 
 #project-name{
 	float:left;
-	min-width:500px;
-	padding:35px 40px 35px 20px;
+  min-width:500px;
+	max-width:700px;
+	padding:55px 40px 55px 20px;
 	border-right: 1px solid #666;
 }
 
 #project-name img{
 	float:left;
 	margin-right:40px;
+  border-radius:50%;
 }
 
 #project-name h2{
@@ -127,12 +144,17 @@ margin-left: 15px;
 	font-weight:700;
 	color:#fff;
 	text-transform:uppercase;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  min-width:500px;
+  max-width:700px;
 }
 
 #project-name p{
 	color:#ddd;
 	font-size:12px;
 	margin-top:15px;
+
 }
 
 /*PROJECT NUMBERS*/
@@ -189,9 +211,12 @@ margin-left: 15px;
   font-weight:700;
   text-decoration:none;
   border-radius:3px;
-
 }
 
+.btn:hover{
+  background:#fff;
+  color:#e20030;
+}
 
 /**********************TIMELINE**********************/
 
@@ -365,15 +390,52 @@ margin-left: 15px;
     margin-top: -45px;*/
 }
 
+#infos{
+  background:#ccc;
+}
+
+#info-cp{
+  margin:0 auto;
+  margin-top:-5px;
+  width:750px;
+  background:#333;
+  border-radius:3px;
+}
+
+#info-cp h4{
+  width:100%;
+  margin:0 auto;
+  padding:20px 0;
+  text-align:center;
+  color:#fff;
+  text-transform:uppercase;
+  font-size:24px;
+  border-bottom:1px solid #666;
+}
+
+
+#info-cp p{
+  color:#ddd;
+  padding:30px;
+  font-weight:400;
+}
+
+#info-cp span{
+  font-weight:bold;
+  line-height:32px;
+}
+
+
+
 /***************PAGE ADD TIMELINE*****************/
 .mini-form{
   margin:0 auto;
   text-align:center;
-  width:500px;
+  width:470px;
   background:#333;
   border-radius:3px;
   margin-top:40px;
-  padding:30px 0px;
+  padding:30px;
 }
 
 .mini-form h2{
@@ -393,7 +455,7 @@ margin-left: 15px;
   background:transparent;
   font-size:14px;
   cursor:pointer;
-  margin:20px;
+  margin-top:20px;
 }
 
 .mini-form input:hover{
@@ -411,7 +473,7 @@ margin-left: 15px;
 }
 
 
-#mine_fields input[type="text"] {
+#mine_fields input[type="text"], input#login_repo {
   width: 33%;
   border-radius:3px;
   line-height:28px;
@@ -419,6 +481,11 @@ margin-left: 15px;
   color:#333;
   margin:15px 15px;
   padding:2px;
+}
+
+input#login_repo{
+  width:75%;
+
 }
 
 select#select_mine{
@@ -437,8 +504,8 @@ select#select_mine{
 /*****************LOGIN FORM**********************/
 
 #login-form{
-  padding:30px;
-  width:450px;
+  padding:50px;
+  width:470px;
   margin-top:15%;
 }
 
@@ -452,7 +519,7 @@ select#select_mine{
   line-height:32px;
   font-size:24px;
   color:#333;
-  margin:15px 0;
+  margin:30px 0;
   padding:2px;
 }
 
