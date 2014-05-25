@@ -285,11 +285,11 @@ focus-cp{
 .mini-form{
   margin:0 auto;
   text-align:center;
-  width:500px;
+  width:470px;
   background:#333;
   border-radius:3px;
   margin-top:40px;
-  padding:30px 0px;
+  padding:30px;
 }
 
 .mini-form h2{
@@ -309,7 +309,7 @@ focus-cp{
   background:transparent;
   font-size:14px;
   cursor:pointer;
-  margin:20px;
+  margin-top:20px;
 }
 
 .mini-form input:hover{
@@ -327,7 +327,7 @@ focus-cp{
 }
 
 
-#mine_fields input[type="text"] {
+#mine_fields input[type="text"], input#login_repo {
   width: 33%;
   border-radius:3px;
   line-height:28px;
@@ -335,6 +335,11 @@ focus-cp{
   color:#333;
   margin:15px 15px;
   padding:2px;
+}
+
+input#login_repo{
+  width:75%;
+
 }
 
 select#select_mine{
@@ -353,8 +358,8 @@ select#select_mine{
 /*****************LOGIN FORM**********************/
 
 #login-form{
-  padding:30px;
-  width:450px;
+  padding:50px;
+  width:470px;
   margin-top:15%;
 }
 
@@ -368,7 +373,7 @@ select#select_mine{
   line-height:32px;
   font-size:24px;
   color:#333;
-  margin:15px 0;
+  margin:30px 0;
   padding:2px;
 }
 
