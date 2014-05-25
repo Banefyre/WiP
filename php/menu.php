@@ -3,7 +3,8 @@
     <div class="logo">
         <a href="wip.php"><img src="img/wip-logo.png" alt="Logo WIP" /></a>
     </div>
-
+    <?php if (isset($_SESSION['data']))
+    { ?>
     <div id="logout">
         <a href="logout.php"><img width="30px" src="img/logout.png" alt="Log out" /></a>
     </div>
@@ -29,5 +30,5 @@
     <div id="addproject">
         <a class="btn" href="add_timeline.php">Add a project</a>
     </div>
-
+    <?php } ?>
 </section>

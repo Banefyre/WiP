@@ -1,11 +1,14 @@
 <?php
 include('php/header.php');
+echo "<body>";
 include('php/menu.php');
 
 function init($date, $begin){
-	$date = date_create_from_format("Y-m-d\TH:i:sO", $date);
-	$begin = date_create_from_format("Y-m-d\TH:i:sO", $begin);
-	$interval = date_diff($date,$begin)->format('%d');
+	$date = date_create_from_format("Y-m-d\TH:i:sO", $date)->format("Y-m-d");
+	$begin = date_create_from_format("Y-m-d\TH:i:sO", $begin)->format("Y-m-d");
+	$date = date_create_from_format("Y-m-d", $date);
+	$begin = date_create_from_format("Y-m-d", $begin);
+	$interval = date_diff($date,$begin)->format('%a');
 	return ($interval);
 }
 
@@ -29,9 +32,7 @@ $commits = $client->api('repo')->commits()->all($res['author'], $res['name'], ar
 $repo = $client->api('repo')->show($res['author'], $res['name']);
 
 $firstcommit = getFirst($commits);
-$scale = 150;
-$pos = -1;
-$size = 1;
+$scale = 100;
 
 ?>
 
@@ -42,7 +43,7 @@ $size = 1;
 			<h2 id="name"><?php echo $res['name']; ?></h2>
 			<input type="hidden" id="oldname" value='<?php echo $res['name']; ?>' />
 			<input type="hidden" id="author" value='<?php echo $repo['owner']['login']; ?>' />
-			<p id="description"><?php echo $repo['description'];?></p>
+			<p id="description">Created by : <?php echo $repo['description'];?></p>
 		</div>
 
 		<div id="project-numbers">
@@ -77,19 +78,26 @@ $size = 1;
 	<section id="timeline-container">
 		<div id="timeline">
 <?php
-//echo $firstcommit;
-
-		foreach ($commits as $commit)
+		$i = 0;
+		$j = 0;
+		while ($i < count($commits) - 1)
 		{
-			//echo $commit['commit']['committer']['date'];
-			//echo "<br><br>";
-			if ($pos === ($scale* init($commit['commit']['committer']['date'], $firstcommit)) && $size <= 4)
-				$size++;
+			echo '<div class="timeline-group scale1" id="group_'.$j.'" style="left : ' . $scale * init($commits[$i]['commit']['committer']['date'], $firstcommit) .'px">';
+
+			if (init($commits[$i]['commit']['committer']['date'], $firstcommit) == init($commits[$i + 1]['commit']['committer']['date'], $firstcommit))
+			{
+				while ($i < count($commits) - 1 && init($commits[$i]['commit']['committer']['date'], $firstcommit) == init($commits[$i + 1]['commit']['committer']['date'], $firstcommit))
+				{
+					echo '<div id="cp_'.$i.'" author="'.$res['author'].'" repo="'.$res['name'].'" commit_author="'.$commits[$i]["commit"]["committer"]["name"].'" full_date="'.$commits[$i]['commit']['committer']['date'].'" sha="'.$commits[$i]['sha'].'" date="'.date_create_from_format("Y-m-d\TH:i:sO", $commits[$i]['commit']['committer']['date'])->format("Y-m-d").'"></div>';
+					$i++;
+				}
+				echo '<div id="cp_'.$i.'" author="'.$res['author'].'" repo="'.$res['name'].'" commit_author="'.$commits[$i]["commit"]["committer"]["name"].'" full_date="'.$commits[$i]['commit']['committer']['date'].'" sha="'.$commits[$i]['sha'].'" date="'.date_create_from_format("Y-m-d\TH:i:sO", $commits[$i]['commit']['committer']['date'])->format("Y-m-d").'"></div>';
+			}
 			else
-				$size = 1;
-			$pos = $scale * init($commit['commit']['committer']['date'], $firstcommit);
-			echo '<div class="timeline-cp scale'. $size . '" id="cp' . $commit['sha'] . '" style="left : ' . $pos .'px"></div>';
-			/*echo '<div class="timeline-cp focus-cp" id="cp3"></div>'*/
+				echo '<div id="cp_'.$i.'" author="'.$res['author'].'" repo="'.$res['name'].'" commit_author="'.$commits[$i]["commit"]["committer"]["name"].'" full_date="'.$commits[$i]['commit']['committer']['date'].'" sha="'.$commits[$i]['sha'].'" date="'.date_create_from_format("Y-m-d\TH:i:sO", $commits[$i]['commit']['committer']['date'])->format("Y-m-d").'"></div>';
+			$i++;
+			$j++;
+			echo "</div>";
 		}
 ?>
 			</div>
@@ -98,10 +106,18 @@ $size = 1;
 
 	<section id="infos">
 
-		<div id="info-cp">
-
-		<button id="left">l</button>
-		<button id="right">r</button>
+		<div id="infos-content">
+			<div id="infos-cp">
+				<h4>Checkpoint name</h4>
+				<p>
+					<span>Date of creation :</span> 13/37/2014<br />
+					<span>Type of Checkpoint :</span> GitHub Commit<br />
+					<span>Description :</span><br />
+					Lorem ipsum cacawete toussa toussa maggle.
+				</p>
+			</div>
+			<div id="list-cp">
+			</div>
 		</div>
 
 <?php
@@ -109,13 +125,24 @@ $size = 1;
 
 /*foreach ($commits as $commit)
 {
-	echo "auteur du commit : ".$commit['commit']['committer']['name']."<br/>";
-	echo "date du commit : ".$commit['commit']['committer']['date']."<br/>";
-	echo "message : ".$commit['commit']['message']."<br/>";
-	echo "url du commit : ".$commit['html_url']."<br/>";
+	//echo init($commit['commit']['committer']['date'], $firstcommit);
+	//echo "auteur du commit : ".$commit['commit']['committer']['name']."<br/>";
+	//echo "date du commit : ".$commit['commit']['committer']['date']."<br/>";
+	//echo "message : ".$commit['commit']['message']."<br/>";
+	//echo "url du commit : ".$commit['html_url']."<br/>";
 	echo "<br/>";
 
 }*/
+
+/*$i = 0;
+$j = 0;
+$size = 1;
+while ($i < count($commits) - 1)
+{
+	echo $commits[$i]['commit']['committer']['date']."<br>";
+	$i++;
+}*/
+
 
 
 //print_r($commits);
