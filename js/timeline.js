@@ -1,9 +1,6 @@
 $( document ).ready(function() {
 
-	var start = new Date("2013-09-22");
-	//	var end = new Date("2014-05-30");
-
-	//	focus(new Date());
+	var start = new Date($("#timeline div").last().attr("date"));
 
 	function focus(date) {
 		date = new Date(date);
@@ -54,10 +51,13 @@ $( document ).ready(function() {
 
 	$('.timeline-group').hover(
 		function(){
-			width = $(this).width();
-			var len = $(this).children().length;
-			$(this).append("<p id='number_commit'>" + len + "</p>");
-			$('#number_commit').delay(400).fadeIn(250);
+			if (!$(this).hasClass('focus'))
+			{
+				width = $(this).width();
+				var len = $(this).children().length;
+				$(this).append("<p id='number_commit'>" + len + "</p>");
+				$('#number_commit').delay(400).fadeIn(250);
+			}
 		}, function() {
 			$("#number_commit").remove();
 		});
@@ -74,14 +74,30 @@ $( document ).ready(function() {
 		$('#infos-content').fadeIn(250);
 		$('#list-cp').fadeIn(250);
 		diff = focus($(this).children().attr('date'));
-		var start = $("#group_9").css("left").replace(/[^-\d\.]/g, '');
+		var start = $("#timeline div").last().parent().css("left").replace(/[^-\d\.]/g, '');
 		var offset = +start + +(100 * diff) - +($('#timeline-container').width() / 2) + +width / 2;
 		$('.timeline-group').animate({left: "-=" + offset }, 500);
 
 
 		var date = $(this).children().attr('date');
 		$('#list-cp').append('<h4>' + date  + '</h4>');
+		$(this).children("div").each(function (){
+			var author = $(this).attr('commit_author');
+			var full_date = $(this).attr('full_date');
+			var sha = $(this).attr('sha');
+			var author = $(this).attr('author');
+			var name = $(this).attr('name');
+			$('#list-cp').append('<p><a class="commit_link" href="#">' + author + ' authored on ' + full_date + '</a>');
+			$('#list-cp').append('<input type="hidden" name="sha" value="' + sha + '"/>');
+			$('#list-cp').append('<input type="hidden" name="author" value="' + author + '"/>');
+			$('#list-cp').append('<input type="hidden" name="name" value="' + name + '"/></p>');
 
+			$('.commit_link').bind("click", function(e){
+				$('#list-cp').empty();
+
+			});
+		});
+	});
 		/*$.ajax({
 		url: "php/get_commit.php",
 		method: "post",
@@ -96,6 +112,6 @@ $( document ).ready(function() {
 			}
 		}
 	});*/
-	});
+
 
 });
