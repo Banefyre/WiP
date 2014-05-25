@@ -102,6 +102,7 @@ $scale = 100;
 		}
 ?>
 			</div>
+			<div id="arrow-timeline"><img src="img/arrow-timeline.png" alt="bla"></div>
 	</section>
 
 
