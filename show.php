@@ -76,7 +76,7 @@ $scale = 100;
 
 
 	<section id="timeline-container">
-		<div id="date_chooser" ><input id="date" type="date" /><input id ="go_date" type="button" value="Go !" /></div>
+		<div id="date_chooser"><input id="date" type="date" /><input id ="go_date" type="button" value="Go !" /></div>
 		<div id="timeline">
 <?php
 		$i = 0;
