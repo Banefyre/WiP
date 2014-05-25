@@ -32,6 +32,7 @@ body {
 	line-height: 1;
     font-family: 'Open Sans',"Helvetica Neue",Helvetica,Arial,sans-serif;
     overflow-x: hidden;
+	background:#ccc;
 }
 ol, ul {
 	list-style: none;
@@ -89,6 +90,20 @@ section{
 #menu ul li{
 	padding:15px 40px 15px 30px;
   background:#e20030;
+}
+
+#menu ul li:hover{
+	padding:15px 40px 15px 30px;
+	background:#ff2736;
+}
+
+#menu .categ-project:hover{
+	background:#e20030;
+}
+
+#menu ul li a{
+	color:#fff;
+	text-decoration:none;
 }
 
 #addproject{
@@ -203,6 +218,7 @@ section{
 	font-weight:700;
 	text-decoration:none;
 	border-radius:3px;
+	position:relative;
 }
 
 .btn{
@@ -227,9 +243,8 @@ section{
 	position:relative;
 	background:#ccc;
 	height:190px;
-    background-image:url('../img/arrow-timeline.png');
-    background-position:center bottom;
-    background-repeat:no-repeat;
+
+
 	background: #a5a5a5; /* Old browsers */
 	background: -moz-linear-gradient(top,  #a5a5a5 0%, #e2e2e2 50%, #a5a5a5 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#a5a5a5), color-stop(50%,#e2e2e2), color-stop(100%,#a5a5a5)); /* Chrome,Safari4+ */
@@ -238,6 +253,10 @@ section{
 	background: -ms-linear-gradient(top,  #a5a5a5 0%,#e2e2e2 50%,#a5a5a5 100%); /* IE10+ */
 	background: linear-gradient(to bottom,  #a5a5a5 0%,#e2e2e2 50%,#a5a5a5 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a5a5a5', endColorstr='#a5a5a5',GradientType=0 ); /* IE6-9 */
+/*background-image:url('../img/arrow-timeline.png');
+background-position:center bottom;
+    background-repeat:no-repeat*/
+
 }
 
 #timeline{
@@ -251,6 +270,13 @@ section{
     box-shadow:inset 0 0 5px 1px rgba(0,0,0,0.4);
 
 }
+
+#arrow-timeline{
+	margin: 0 auto;
+	width: 100%;
+	text-align: center;
+	margin-top: 150px;
+	}
 
 
 #infos{
@@ -414,16 +440,18 @@ section{
   width:750px;
   background:#333;
   border-radius:3px;
-  height: 400px;
+  min-height: 200px;
 }
 
 #infos-cp{
   display: none;
 }
 
+
 #fake-form{
   display: none;
 }
+
 
 
 #infos-cp h4{
@@ -444,6 +472,10 @@ section{
   font-weight:400;
 }
 
+#infos-cp a{
+	color:#fff;
+}
+
 #infos-cp span{
   font-weight:bold;
   line-height:32px;
@@ -452,6 +484,8 @@ section{
 #list-cp{
   display: none;
 }
+
+
 
 #list-cp h4{
   width:100%;
@@ -467,8 +501,14 @@ section{
 
 #list-cp p{
   color:#ddd;
-  padding:30px;
+  padding:20px;
   font-weight:400;
+  text-align:center;
+}
+
+#list-cp a{
+	text-align:center;
+	color:#fff;
 }
 
 #list-cp span{
