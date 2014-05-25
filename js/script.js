@@ -124,10 +124,12 @@ $( document ).ready(function() {
 
 
     /*MENU DROPDOWN HEADER*/
-    $('.categ-project').hover(function()
+    $('#menu').hover(function()
     {
         $('#header').css("overflow","visible");
-    });
+
+	});
+	
 
 
 });
