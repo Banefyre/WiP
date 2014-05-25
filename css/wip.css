@@ -112,8 +112,9 @@ margin-left: 15px;
 
 #project-name{
 	float:left;
-	min-width:500px;
-	padding:35px 40px 35px 20px;
+  min-width:500px;
+	max-width:700px;
+	padding:55px 40px 55px 20px;
 	border-right: 1px solid #666;
 }
 
@@ -127,12 +128,17 @@ margin-left: 15px;
 	font-weight:700;
 	color:#fff;
 	text-transform:uppercase;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  min-width:500px;
+  max-width:700px;
 }
 
 #project-name p{
 	color:#ddd;
 	font-size:12px;
 	margin-top:15px;
+
 }
 
 /*PROJECT NUMBERS*/
