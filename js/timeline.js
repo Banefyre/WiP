@@ -97,14 +97,15 @@ $( document ).ready(function() {
 			full_date = $(this).attr('full_date');
 			sha = $(this).attr('sha');
 			description = $(this).attr('description');
+			url = $(this).attr('url');
 			$('#list-cp').append('<p><a class="commit_link" href="#">' + author + ' authored on ' + full_date + '</a>');
 			});
 
 			$('.commit_link').bind("click", function(e){
 				$('#list-cp').empty();
 				$('#infos-cp').show();
-				$('#infos-cp').append('<h4>CHECKPOINT</h4>');
-				$('#infos-cp').append('<p><span>Lien vers le commit : </span>' + sha + '<br/><span>Author : </span>' + author + '<br/><span>Date : </span>' + full_date + '<br/><span>Description : </span>' + description + '<br/></p>');
+				$('#infos-cp').append('<h4>COMMIT '+ sha.substr(0, 7) +'</h4>');
+				$('#infos-cp').append('<p><span>Lien vers le commit : </span><a href='+ url +'>' + sha + '</a><br/><span>Author : </span>' + author + '<br/><span>Date : </span>' + full_date + '<br/><span>Description : </span>' + description + '<br/></p>');
 		});
 	});
 
@@ -115,5 +116,14 @@ $( document ).ready(function() {
 		$('.timeline-group').animate({left: "-=" + offset }, 500);
 	});
 
+	$('#timeline').click(function(){
+		var evt=window.event;
+		//window.status=evt.clientX+" : "+evt.clientY
+		//var cp = ('<div id="checkpoint"></div>')
+	    //.offset({ my: evt.clientX, at: evt.clientY, of: $('#timeline') })
+	    //.appendTo('#timeline');
+		var css = evt.clientX - 40;
+		$('#timeline').append("<div scrollable='true' class='timeline-group scale2' id='group_99' style='left: " + css + "px; display: block;'></div>");
+	});
 
 });

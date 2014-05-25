@@ -260,6 +260,7 @@ background-position:center bottom;
 	width: 100%;
 	text-align: center;
 	margin-top: 150px;
+	}
 
 
 #infos{
@@ -510,7 +511,12 @@ background-position:center bottom;
 
 }
 
-
+#checkpoint
+{
+    width:50px;
+    height:50px;
+    background-color: blue:
+}
 
 /***************PAGE ADD TIMELINE*****************/
 .mini-form{

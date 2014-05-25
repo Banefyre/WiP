@@ -43,7 +43,7 @@ $scale = 100;
 			<h2 id="name"><?php echo $res['name']; ?></h2>
 			<input type="hidden" id="oldname" value='<?php echo $res['name']; ?>' />
 			<input type="hidden" id="author" value='<?php echo $repo['owner']['login']; ?>' />
-			<p id="description">Created by : <?php echo $repo['description'];?></p>
+			<p id="description">Created by : <?php echo $repo['owner']['login']; ?> | Description : <?php echo $repo['description']; ?></p>
 		</div>
 
 		<div id="project-numbers">
@@ -89,13 +89,13 @@ $scale = 100;
 			{
 				while ($i < count($commits) - 1 && init($commits[$i]['commit']['committer']['date'], $firstcommit) == init($commits[$i + 1]['commit']['committer']['date'], $firstcommit))
 				{
-					echo '<div id="cp_'.$i.'" author="'.$res['author'].'" repo="'.$res['name'].'" commit_author="'.$commits[$i]["commit"]["committer"]["name"].'" description="'.$commits[$i]["commit"]["message"].'" full_date="'.$commits[$i]['commit']['committer']['date'].'" sha="'.$commits[$i]['sha'].'" date="'.date_create_from_format("Y-m-d\TH:i:sO", $commits[$i]['commit']['committer']['date'])->format("Y-m-d").'"></div>';
+					echo '<div id="cp_'.$i.'" url="'.$commits[$i]['html_url'].'" author="'.$res['author'].'" repo="'.$res['name'].'" commit_author="'.$commits[$i]["commit"]["committer"]["name"].'" description="'.$commits[$i]["commit"]["message"].'" full_date="'.$commits[$i]['commit']['committer']['date'].'" sha="'.$commits[$i]['sha'].'" date="'.date_create_from_format("Y-m-d\TH:i:sO", $commits[$i]['commit']['committer']['date'])->format("Y-m-d").'"></div>';
 					$i++;
 				}
-				echo '<div id="cp_'.$i.'" author="'.$res['author'].'" repo="'.$res['name'].'" commit_author="'.$commits[$i]["commit"]["committer"]["name"].'" description="'.$commits[$i]["commit"]["message"].'" full_date="'.$commits[$i]['commit']['committer']['date'].'" sha="'.$commits[$i]['sha'].'" date="'.date_create_from_format("Y-m-d\TH:i:sO", $commits[$i]['commit']['committer']['date'])->format("Y-m-d").'"></div>';
+				echo '<div id="cp_'.$i.'" url="'.$commits[$i]['html_url'].'" author="'.$res['author'].'" repo="'.$res['name'].'" commit_author="'.$commits[$i]["commit"]["committer"]["name"].'" description="'.$commits[$i]["commit"]["message"].'" full_date="'.$commits[$i]['commit']['committer']['date'].'" sha="'.$commits[$i]['sha'].'" date="'.date_create_from_format("Y-m-d\TH:i:sO", $commits[$i]['commit']['committer']['date'])->format("Y-m-d").'"></div>';
 			}
 			else
-				echo '<div id="cp_'.$i.'" author="'.$res['author'].'" repo="'.$res['name'].'" commit_author="'.$commits[$i]["commit"]["committer"]["name"].'" description="'.$commits[$i]["commit"]["message"].'" full_date="'.$commits[$i]['commit']['committer']['date'].'" sha="'.$commits[$i]['sha'].'" date="'.date_create_from_format("Y-m-d\TH:i:sO", $commits[$i]['commit']['committer']['date'])->format("Y-m-d").'"></div>';
+				echo '<div id="cp_'.$i.'" url="'.$commits[$i]['html_url'].'" author="'.$res['author'].'" repo="'.$res['name'].'" commit_author="'.$commits[$i]["commit"]["committer"]["name"].'" description="'.$commits[$i]["commit"]["message"].'" full_date="'.$commits[$i]['commit']['committer']['date'].'" sha="'.$commits[$i]['sha'].'" date="'.date_create_from_format("Y-m-d\TH:i:sO", $commits[$i]['commit']['committer']['date'])->format("Y-m-d").'"></div>';
 			$i++;
 			$j++;
 			echo "</div>";
