@@ -316,7 +316,14 @@ focus-cp{
   color:#333;
 }
 
+#login-body{
+  background: url(../img/background.jpg) no-repeat center fixed;
+  -webkit-background-size: cover; /* pour Chrome et Safari */
+  -moz-background-size: cover; /* pour Firefox */
+  -o-background-size: cover; /* pour Opera */
+  background-size: cover; /* version standardisée */
 
+}
 
 
 /*****************LOGIN FORM**********************/
@@ -324,6 +331,7 @@ focus-cp{
 #login-form{
   padding:30px;
   width:450px;
+  margin-top:15%;
 }
 
 #login-form h2{
@@ -337,6 +345,7 @@ focus-cp{
   font-size:24px;
   color:#333;
   margin:15px 0;
+  padding:2px;
 }
 
 #login-form input[type="submit"] {

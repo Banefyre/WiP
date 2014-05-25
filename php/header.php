@@ -15,5 +15,3 @@ require_once('connect.php');
 	<script src="js/script.js"></script>
 	</head>
 	<link rel="stylesheet" type="text/css" href="css/wip.css"></link>
-	<body>
-
