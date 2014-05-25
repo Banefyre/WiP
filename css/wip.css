@@ -31,6 +31,7 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
     font-family: 'Open Sans',"Helvetica Neue",Helvetica,Arial,sans-serif;
+    overflow-x: hidden;
 }
 ol, ul {
 	list-style: none;
@@ -199,9 +200,10 @@ margin-left: 15px;
 	position:relative;
 	background:#ccc;
 	height:190px;
-  background-image:url('../img/arrow-timeline.png');
-  background-position:center bottom;
-  background-repeat:no-repeat;
+    background-image:url('../img/arrow-timeline.png');
+    background-position:center bottom;
+    background-repeat:no-repeat;
+
 }
 
 #timeline{
@@ -210,7 +212,8 @@ margin-left: 15px;
 	background:#e94064;
 	top:90px;
 	-webkit-box-shadow:inset 0 0 5px 1px rgba(0,0,0,0.2);
-box-shadow:inset 0 0 5px 1px rgba(0,0,0,0.4);
+    box-shadow:inset 0 0 5px 1px rgba(0,0,0,0.4);
+
 }
 
 
@@ -220,15 +223,12 @@ box-shadow:inset 0 0 5px 1px rgba(0,0,0,0.4);
 
 
 
-
-
-
 .timeline-cp{
 	position:absolute;
 	background: #e94064;
 	border-radius:50%;
 	-webkit-box-shadow: 0 0 5px 1px rgba(0,0,0,0.2);
-box-shadow: 0 0 5px 1px rgba(0,0,0,0.2);
+    box-shadow: 0 0 5px 1px rgba(0,0,0,0.2);
 }
 
 .scale1

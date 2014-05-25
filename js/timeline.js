@@ -31,11 +31,9 @@ $( document ).ready(function() {
 		$(".timeline-cp").animate({left: "-=50",}, 50);
 	});
 
-	$('.timeline-cp').bind('mousewheel', function(event, delta) {
+	$('#timeline-container').bind('mousewheel', function(event, delta) {
 		val = this.scrollLeft - (delta * 50);
 		jQuery(this).stop().animate({scrollLeft:val},500);
 		event.preventDefault();
 	});
 });
-
-
