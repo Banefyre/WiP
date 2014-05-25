@@ -61,10 +61,10 @@ $( document ).ready(function() {
           data: { login: user },
           success: function(res){
             res = jQuery.parseJSON(res);
-            if (res.length == 1)
+            //if (res.length == 1)
                 $('#ok').show();
-            else
-                $('#ok').hide();
+            //else
+                //$('#ok').hide();
         }
         });
     });
@@ -80,7 +80,7 @@ $( document ).ready(function() {
         }
         else
         {
-            if ($('#private_repo').val() != null)
+            if ($('#private_repo').val() != "")
                 repo = $('#private_repo').val();
             else
                 repo = $('#select_mine').val();
@@ -90,7 +90,8 @@ $( document ).ready(function() {
           method: "post",
           data: { login: login, repo: repo },
           success: function(res){
-              $(location).attr('href', "./wip.php");
+              res = $.parseJSON(res);
+              $(location).attr('href', "./show.php?id=" + res);
         }
         });
     });

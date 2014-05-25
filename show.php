@@ -76,25 +76,26 @@ $scale = 100;
 
 
 	<section id="timeline-container">
+		<div id="date_chooser" ><input id="date" type="date" /><input id ="go_date" type="button" value="Go !" /></div>
 		<div id="timeline">
 <?php
 		$i = 0;
 		$j = 0;
 		while ($i < count($commits) - 1)
 		{
-			echo '<div class="timeline-group scale1" id="group_'.$j.'" style="left : ' . $scale * init($commits[$i]['commit']['committer']['date'], $firstcommit) .'px">';
+			echo '<div scrollable="true" class="timeline-group scale1" id="group_'.$j.'" style="left : ' . $scale * init($commits[$i]['commit']['committer']['date'], $firstcommit) .'px">';
 
 			if (init($commits[$i]['commit']['committer']['date'], $firstcommit) == init($commits[$i + 1]['commit']['committer']['date'], $firstcommit))
 			{
 				while ($i < count($commits) - 1 && init($commits[$i]['commit']['committer']['date'], $firstcommit) == init($commits[$i + 1]['commit']['committer']['date'], $firstcommit))
 				{
-					echo '<div id="cp_'.$i.'" author="'.$res['author'].'" repo="'.$res['name'].'" commit_author="'.$commits[$i]["commit"]["committer"]["name"].'" full_date="'.$commits[$i]['commit']['committer']['date'].'" sha="'.$commits[$i]['sha'].'" date="'.date_create_from_format("Y-m-d\TH:i:sO", $commits[$i]['commit']['committer']['date'])->format("Y-m-d").'"></div>';
+					echo '<div id="cp_'.$i.'" author="'.$res['author'].'" repo="'.$res['name'].'" commit_author="'.$commits[$i]["commit"]["committer"]["name"].'" description="'.$commits[$i]["commit"]["message"].'" full_date="'.$commits[$i]['commit']['committer']['date'].'" sha="'.$commits[$i]['sha'].'" date="'.date_create_from_format("Y-m-d\TH:i:sO", $commits[$i]['commit']['committer']['date'])->format("Y-m-d").'"></div>';
 					$i++;
 				}
-				echo '<div id="cp_'.$i.'" author="'.$res['author'].'" repo="'.$res['name'].'" commit_author="'.$commits[$i]["commit"]["committer"]["name"].'" full_date="'.$commits[$i]['commit']['committer']['date'].'" sha="'.$commits[$i]['sha'].'" date="'.date_create_from_format("Y-m-d\TH:i:sO", $commits[$i]['commit']['committer']['date'])->format("Y-m-d").'"></div>';
+				echo '<div id="cp_'.$i.'" author="'.$res['author'].'" repo="'.$res['name'].'" commit_author="'.$commits[$i]["commit"]["committer"]["name"].'" description="'.$commits[$i]["commit"]["message"].'" full_date="'.$commits[$i]['commit']['committer']['date'].'" sha="'.$commits[$i]['sha'].'" date="'.date_create_from_format("Y-m-d\TH:i:sO", $commits[$i]['commit']['committer']['date'])->format("Y-m-d").'"></div>';
 			}
 			else
-				echo '<div id="cp_'.$i.'" author="'.$res['author'].'" repo="'.$res['name'].'" commit_author="'.$commits[$i]["commit"]["committer"]["name"].'" full_date="'.$commits[$i]['commit']['committer']['date'].'" sha="'.$commits[$i]['sha'].'" date="'.date_create_from_format("Y-m-d\TH:i:sO", $commits[$i]['commit']['committer']['date'])->format("Y-m-d").'"></div>';
+				echo '<div id="cp_'.$i.'" author="'.$res['author'].'" repo="'.$res['name'].'" commit_author="'.$commits[$i]["commit"]["committer"]["name"].'" description="'.$commits[$i]["commit"]["message"].'" full_date="'.$commits[$i]['commit']['committer']['date'].'" sha="'.$commits[$i]['sha'].'" date="'.date_create_from_format("Y-m-d\TH:i:sO", $commits[$i]['commit']['committer']['date'])->format("Y-m-d").'"></div>';
 			$i++;
 			$j++;
 			echo "</div>";
@@ -108,13 +109,13 @@ $scale = 100;
 
 		<div id="infos-content">
 			<div id="infos-cp">
-				<h4>Checkpoint name</h4>
+				<!--<h4>Checkpoint name</h4>
 				<p>
 					<span>Date of creation :</span> 13/37/2014<br />
 					<span>Type of Checkpoint :</span> GitHub Commit<br />
 					<span>Description :</span><br />
 					Lorem ipsum cacawete toussa toussa maggle.
-				</p>
+				</p>-->
 			</div>
 			<div id="list-cp">
 			</div>

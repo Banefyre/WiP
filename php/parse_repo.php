@@ -63,6 +63,7 @@ if (isset($_POST['repo']))
         if (!$stmt->execute()) {
             echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
         }
+
     }
-    //echo json_encode($query);
+    echo json_encode($id_timeline);
 }

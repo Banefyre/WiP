@@ -17,6 +17,7 @@ $( document ).ready(function() {
 	$('#timeline-container').on('mousewheel', function(event) {
 		$(".timeline-group").removeClass("focus");
 		$('#list-cp').empty();
+		$('#infos-cp').empty();
 		$('#number_fixed').remove();
 		$('#infos-content').fadeOut(250);
 		$('#list-cp').fadeOut(250);
@@ -64,6 +65,7 @@ $( document ).ready(function() {
 
 	$('.timeline-group').click(function(){
 		$(".timeline-group").removeClass("focus");
+		$('#infos-cp').empty();
 		$('#list-cp').empty();
 		$(this).addClass('focus');
 		$('#number_fixed').remove();
@@ -73,45 +75,45 @@ $( document ).ready(function() {
 		//$('#number_commit').delay(400).fadeIn(250);
 		$('#infos-content').fadeIn(250);
 		$('#list-cp').fadeIn(250);
-		diff = focus($(this).children().attr('date'));
+		diff = focus("2014-05-12");
+		//diff = focus($(this).children().attr('date'));
 		var start = $("#timeline div").last().parent().css("left").replace(/[^-\d\.]/g, '');
 		var offset = +start + +(100 * diff) - +($('#timeline-container').width() / 2) + +width / 2;
+		//console.log(start, offset);
 		$('.timeline-group').animate({left: "-=" + offset }, 500);
+
+
+		var author;
+		var full_date;
+		var sha;
+		var author;
+		var description;
 
 
 		var date = $(this).children().attr('date');
 		$('#list-cp').append('<h4>' + date  + '</h4>');
 		$(this).children("div").each(function (){
-			var author = $(this).attr('commit_author');
-			var full_date = $(this).attr('full_date');
-			var sha = $(this).attr('sha');
-			var author = $(this).attr('author');
-			var name = $(this).attr('name');
+			author = $(this).attr('commit_author');
+			full_date = $(this).attr('full_date');
+			sha = $(this).attr('sha');
+			description = $(this).attr('description');
 			$('#list-cp').append('<p><a class="commit_link" href="#">' + author + ' authored on ' + full_date + '</a>');
-			$('#list-cp').append('<input type="hidden" name="sha" value="' + sha + '"/>');
-			$('#list-cp').append('<input type="hidden" name="author" value="' + author + '"/>');
-			$('#list-cp').append('<input type="hidden" name="name" value="' + name + '"/></p>');
+			});
 
 			$('.commit_link').bind("click", function(e){
 				$('#list-cp').empty();
-
-			});
+				$('#infos-cp').show();
+				$('#infos-cp').append('<h4>CHECKPOINT</h4>');
+				$('#infos-cp').append('<p><span>Lien vers le commit : </span>' + sha + '<br/><span>Author : </span>' + author + '<br/><span>Date : </span>' + full_date + '<br/><span>Description : </span>' + description + '<br/></p>');
 		});
 	});
-		/*$.ajax({
-		url: "php/get_commit.php",
-		method: "post",
-		data: { login:  },
-		success: function(res){
-			res = jQuery.parseJSON(res);
-			$('#select_other').show();
-			$('#select_other').empty();
-			for (var i = 0; i < res.length; i++)
-			{
-				$('#select_other').append('<option>' + res[i].name + '</option>');
-			}
-		}
-	});*/
+
+	$('#go_date').click(function(){
+		diff = focus($("#date").val());
+		var start = $("#timeline div").last().parent().css("left").replace(/[^-\d\.]/g, '');
+		var offset = +start + +(100 * diff) - +($('#timeline-container').width() / 2);
+		$('.timeline-group').animate({left: "-=" + offset }, 500);
+	});
 
 
 });

@@ -458,6 +458,12 @@ section{
   line-height:32px;
 }
 
+#date_chooser
+{
+    text-align:center;
+}
+
+
 /***************PAGE ADD TIMELINE*****************/
 .mini-form{
   margin:0 auto;
@@ -531,6 +537,7 @@ select#select_mine{
    margin:15px 15px;
    }
 }
+
 
 /*****************LOGIN FORM**********************/
 
