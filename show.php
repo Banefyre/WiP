@@ -55,7 +55,7 @@ $scale = 100;
 
 			<div class="p-number">
 				<span><?php echo(count($collabo)); ?></span>
-				<p>Collaborateurs</p>
+				<p>Collaborators</p>
 			</div>
 
 			<div class="p-number">
@@ -109,15 +109,25 @@ $scale = 100;
 
 		<div id="infos-content">
 			<div id="infos-cp">
-				<!--<h4>Checkpoint name</h4>
-				<p>
-					<span>Date of creation :</span> 13/37/2014<br />
-					<span>Type of Checkpoint :</span> GitHub Commit<br />
-					<span>Description :</span><br />
-					Lorem ipsum cacawete toussa toussa maggle.
-				</p>-->
 			</div>
 			<div id="list-cp">
+			</div>
+			<div id="fake-form">
+				<h4>ADD A CHECKPOINT</h4>
+				<p>
+					<span>Type</span>
+					<select>
+						<option>Meeting</option>
+						<option>Validation</option>
+						<option>New Major Feature</option>
+						<option>Deadline</option>
+					</select><br/><br/>
+					<span>Description</span>
+					<textarea></textarea><br/><br/>
+					<input type="file"/><br/><br/>
+					<input type="checkbox" />Notify all collaborators<br/><br/>
+					<input type="button" id="save_cp" value="Save" />
+				</p>
 			</div>
 		</div>
 

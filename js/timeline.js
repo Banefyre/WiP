@@ -16,6 +16,7 @@ $( document ).ready(function() {
 
 	$('#timeline-container').on('mousewheel', function(event) {
 		$(".timeline-group").removeClass("focus");
+		$('#fake-form').hide();
 		$('#list-cp').empty();
 		$('#infos-cp').empty();
 		$('#number_fixed').remove();
@@ -67,6 +68,7 @@ $( document ).ready(function() {
 		$(".timeline-group").removeClass("focus");
 		$('#infos-cp').empty();
 		$('#list-cp').empty();
+		$('#fake-form').hide();
 		$(this).addClass('focus');
 		$('#number_fixed').remove();
 		$("#number_commit").remove();
@@ -122,8 +124,14 @@ $( document ).ready(function() {
 		//var cp = ('<div id="checkpoint"></div>')
 	    //.offset({ my: evt.clientX, at: evt.clientY, of: $('#timeline') })
 	    //.appendTo('#timeline');
+		console.log(evt.clientY);
 		var css = evt.clientX - 40;
-		$('#timeline').append("<div scrollable='true' class='timeline-group scale2' id='group_99' style='left: " + css + "px; display: block;'></div>");
+		if (evt.clientY < 413 && evt.clientY > 400)
+		{
+			$('#infos-content').fadeIn(250);
+			$('#fake-form').show();
+			$('#timeline').append("<div scrollable='true' class='timeline-group blue scale4' id='group_99' style='left: " + css + "px; display: block;'></div>");
+		}
 	});
 
 });

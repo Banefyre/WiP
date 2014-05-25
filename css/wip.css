@@ -293,6 +293,10 @@ section{
     -webkit-transition: width ease 0.5s, height ease 0.5s, margin-left ease 0.5s, margin-top ease 0.5s, border ease 0.5s;
 }
 
+.timeline-group.blue{
+    background: #3165b2;
+}
+
 .timeline-group:hover{
     border:2px solid #fff;
 }
@@ -417,6 +421,11 @@ section{
   display: none;
 }
 
+#fake-form{
+  display: none;
+}
+
+
 #infos-cp h4{
   width:100%;
   margin:0 auto;
@@ -466,6 +475,34 @@ section{
   font-weight:bold;
   line-height:32px;
 }
+
+#fake-form{
+  display: none;
+}
+
+#fake-form h4{
+  width:100%;
+  margin:0 auto;
+  padding:20px 0;
+  text-align:center;
+  color:#fff;
+  text-transform:uppercase;
+  font-size:24px;
+  border-bottom:1px solid #666;
+}
+
+
+#fake-form p{
+  color:#ddd;
+  padding:30px;
+  font-weight:400;
+}
+
+#fake-form span{
+  font-weight:bold;
+  line-height:32px;
+}
+
 
 #date_chooser
 {
