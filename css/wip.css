@@ -442,6 +442,8 @@ background-position:center bottom;
   display: none;
 }
 
+
+
 #infos-cp h4{
   width:100%;
   margin:0 auto;
@@ -458,6 +460,10 @@ background-position:center bottom;
   color:#ddd;
   padding:30px;
   font-weight:400;
+}
+
+#infos-cp a{
+	color:#fff;
 }
 
 #infos-cp span{
