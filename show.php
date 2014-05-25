@@ -4,8 +4,10 @@ echo "<body>";
 include('php/menu.php');
 
 function init($date, $begin){
-	$date = date_create_from_format("Y-m-d\TH:i:sO", $date);
-	$begin = date_create_from_format("Y-m-d\TH:i:sO", $begin);
+	$date = date_create_from_format("Y-m-d\TH:i:sO", $date)->format("Y-m-d");
+	$begin = date_create_from_format("Y-m-d\TH:i:sO", $begin)->format("Y-m-d");
+	$date = date_create_from_format("Y-m-d", $date);
+	$begin = date_create_from_format("Y-m-d", $begin);
 	$interval = date_diff($date,$begin)->format('%a');
 	return ($interval);
 }
@@ -30,9 +32,7 @@ $commits = $client->api('repo')->commits()->all($res['author'], $res['name'], ar
 $repo = $client->api('repo')->show($res['author'], $res['name']);
 
 $firstcommit = getFirst($commits);
-$scale = 150;
-$pos = -1;
-$size = 1;
+$scale = 100;
 
 ?>
 
@@ -78,21 +78,26 @@ $size = 1;
 	<section id="timeline-container">
 		<div id="timeline">
 <?php
-//echo $firstcommit;
 		$i = 0;
-		foreach ($commits as $commit)
+		$j = 0;
+		while ($i < count($commits) - 1)
 		{
-			$i++;
-			//echo $commit['commit']['committer']['date'];
-			if ($pos === ($scale * init($commit['commit']['committer']['date'], $firstcommit)))
+			echo '<div class="timeline-group scale1" id="group_'.$j.'" style="left : ' . $scale * init($commits[$i]['commit']['committer']['date'], $firstcommit) .'px">';
+
+			if (init($commits[$i]['commit']['committer']['date'], $firstcommit) == init($commits[$i + 1]['commit']['committer']['date'], $firstcommit))
 			{
-				if ($size <= 4)
-					$size++;
+				while ($i < count($commits) - 1 && init($commits[$i]['commit']['committer']['date'], $firstcommit) == init($commits[$i + 1]['commit']['committer']['date'], $firstcommit))
+				{
+					echo '<div id="cp_'.$i.'" date="'.date_create_from_format("Y-m-d\TH:i:sO", $commits[$i]['commit']['committer']['date'])->format("Y-m-d").'"></div>';
+					$i++;
+				}
+				echo '<div id="cp_'.$i.'" date="'.date_create_from_format("Y-m-d\TH:i:sO", $commits[$i]['commit']['committer']['date'])->format("Y-m-d").'"></div>';
 			}
 			else
-				$size = 1;
-			$pos = $scale * init($commit['commit']['committer']['date'], $firstcommit);
-			echo '<div class="timeline-cp scale'. $size .'" id="'.$i.'" style="left : ' . $pos .'px"></div>';
+				echo '<div id="cp_'.$i.'" date="'.date_create_from_format("Y-m-d\TH:i:sO", $commits[$i]['commit']['committer']['date'])->format("Y-m-d").'"></div>';
+			$i++;
+			$j++;
+			echo "</div>";
 		}
 ?>
 			</div>
@@ -121,25 +126,14 @@ $size = 1;
 
 }*/
 
-$scale * init($commit['commit']['committer']['date'], $firstcommit);
-
-$i = 0;
-while ($i < (count($commits) - 1))
+/*$i = 0;
+$j = 0;
+$size = 1;
+while ($i < count($commits) - 1)
 {
-	echo '<div id="group_'.$i.'">';
-	if (init($commits[$i]['commit']['committer']['date'], $firstcommit) == init($commits[$i + 1]['commit']['committer']['date'], $firstcommit))
-	{
-	while (init($commits[$i]['commit']['committer']['date'], $firstcommit) == init($commits[$i + 1]['commit']['committer']['date'], $firstcommit))
-	{
-		echo "salut";
-		$i++;
-	}
-	}
-	else
-		$i++;
-	echo "</div>";
-	//echo '<div class="timeline-cp scale'. $size .'" id="'.$i.'" style="left : ' . $pos .'px"></div>';
-}
+	echo $commits[$i]['commit']['committer']['date']."<br>";
+	$i++;
+}*/
 
 
 
