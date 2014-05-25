@@ -75,8 +75,8 @@ $( document ).ready(function() {
 		//$('#number_commit').delay(400).fadeIn(250);
 		$('#infos-content').fadeIn(250);
 		$('#list-cp').fadeIn(250);
-		diff = focus("2014-05-12");
-		//diff = focus($(this).children().attr('date'));
+		//diff = focus("2014-05-12");
+		diff = focus($(this).children().attr('date'));
 		var start = $("#timeline div").last().parent().css("left").replace(/[^-\d\.]/g, '');
 		var offset = +start + +(100 * diff) - +($('#timeline-container').width() / 2) + +width / 2;
 		//console.log(start, offset);
