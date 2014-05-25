@@ -394,15 +394,21 @@ section{
   background:#ccc;
 }
 
-#info-cp{
+#infos-content{
+  display:none;
   margin:0 auto;
   margin-top:-5px;
   width:750px;
   background:#333;
   border-radius:3px;
+  height: 400px;
 }
 
-#info-cp h4{
+#infos-cp{
+  display: none;
+}
+
+#infos-cp h4{
   width:100%;
   margin:0 auto;
   padding:20px 0;
@@ -414,18 +420,43 @@ section{
 }
 
 
-#info-cp p{
+#infos-cp p{
   color:#ddd;
   padding:30px;
   font-weight:400;
 }
 
-#info-cp span{
+#infos-cp span{
   font-weight:bold;
   line-height:32px;
 }
 
+#list-cp{
+  display: none;
+}
 
+#list-cp h4{
+  width:100%;
+  margin:0 auto;
+  padding:20px 0;
+  text-align:center;
+  color:#fff;
+  text-transform:uppercase;
+  font-size:24px;
+  border-bottom:1px solid #666;
+}
+
+
+#list-cp p{
+  color:#ddd;
+  padding:30px;
+  font-weight:400;
+}
+
+#list-cp span{
+  font-weight:bold;
+  line-height:32px;
+}
 
 /***************PAGE ADD TIMELINE*****************/
 .mini-form{

@@ -125,7 +125,7 @@ $( document ).ready(function() {
     /*MENU DROPDOWN HEADER*/
     $('.categ-project').hover(function()
     {
-      $('#header').css("overflow","visible");
+        $('#header').css("overflow","visible");
     });
 
 

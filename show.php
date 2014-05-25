@@ -88,13 +88,13 @@ $scale = 100;
 			{
 				while ($i < count($commits) - 1 && init($commits[$i]['commit']['committer']['date'], $firstcommit) == init($commits[$i + 1]['commit']['committer']['date'], $firstcommit))
 				{
-					echo '<div id="cp_'.$i.'" date="'.date_create_from_format("Y-m-d\TH:i:sO", $commits[$i]['commit']['committer']['date'])->format("Y-m-d").'"></div>';
+					echo '<div id="cp_'.$i.'" author="'.$res['author'].'" repo="'.$res['name'].'" commit_author="'.$commits[$i]["commit"]["committer"]["name"].'" full_date="'.$commits[$i]['commit']['committer']['date'].'" sha="'.$commits[$i]['sha'].'" date="'.date_create_from_format("Y-m-d\TH:i:sO", $commits[$i]['commit']['committer']['date'])->format("Y-m-d").'"></div>';
 					$i++;
 				}
-				echo '<div id="cp_'.$i.'" date="'.date_create_from_format("Y-m-d\TH:i:sO", $commits[$i]['commit']['committer']['date'])->format("Y-m-d").'"></div>';
+				echo '<div id="cp_'.$i.'" author="'.$res['author'].'" repo="'.$res['name'].'" commit_author="'.$commits[$i]["commit"]["committer"]["name"].'" full_date="'.$commits[$i]['commit']['committer']['date'].'" sha="'.$commits[$i]['sha'].'" date="'.date_create_from_format("Y-m-d\TH:i:sO", $commits[$i]['commit']['committer']['date'])->format("Y-m-d").'"></div>';
 			}
 			else
-				echo '<div id="cp_'.$i.'" date="'.date_create_from_format("Y-m-d\TH:i:sO", $commits[$i]['commit']['committer']['date'])->format("Y-m-d").'"></div>';
+				echo '<div id="cp_'.$i.'" author="'.$res['author'].'" repo="'.$res['name'].'" commit_author="'.$commits[$i]["commit"]["committer"]["name"].'" full_date="'.$commits[$i]['commit']['committer']['date'].'" sha="'.$commits[$i]['sha'].'" date="'.date_create_from_format("Y-m-d\TH:i:sO", $commits[$i]['commit']['committer']['date'])->format("Y-m-d").'"></div>';
 			$i++;
 			$j++;
 			echo "</div>";
@@ -106,7 +106,8 @@ $scale = 100;
 
 	<section id="infos">
 
-		<div id="info-cp">
+		<div id="infos-content">
+			<div id="infos-cp">
 				<h4>Checkpoint name</h4>
 				<p>
 					<span>Date of creation :</span> 13/37/2014<br />
@@ -114,6 +115,9 @@ $scale = 100;
 					<span>Description :</span><br />
 					Lorem ipsum cacawete toussa toussa maggle.
 				</p>
+			</div>
+			<div id="list-cp">
+			</div>
 		</div>
 
 <?php
